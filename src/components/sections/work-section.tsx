@@ -10,38 +10,45 @@ export function WorkSection() {
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
-          className={`mb-12 transition-all duration-700 md:mb-16 ${
+          className={`mb-10 transition-all duration-700 md:mb-14 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Проекты
+            Северный морской путь
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Избранные работы</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Блок 2 · Слайды 6–12</p>
         </div>
 
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-4 md:space-y-6">
           {[
             {
-              number: "01",
-              title: "ТехноСтарт",
-              category: "Корпоративный портал",
-              year: "2024",
+              number: "06–07",
+              title: "СМП как национальный приоритет",
+              category: "Правовой статус · Федеральный закон «О СМП»",
+              year: "Арктика",
               direction: "left",
             },
             {
-              number: "02",
-              title: "АльфаТрейд",
-              category: "Финтех платформа",
-              year: "2024",
+              number: "08–09",
+              title: "Росатом и авиационная доступность",
+              category: "Единый инфраструктурный оператор · Проблемы изоляции арктических районов",
+              year: "Инфраструктура",
               direction: "right",
             },
             {
-              number: "03",
-              title: "МедиаПульс",
-              category: "Медиа сервис",
-              year: "2023",
+              number: "10–11",
+              title: "Господдержка и малая авиация",
+              category: "Субсидирование маршрутов · Воздушный кодекс РФ",
+              year: "Субсидии",
               direction: "left",
+            },
+            {
+              number: "12",
+              title: "Экология и безопасность СМП",
+              category: "Защита окружающей среды · Рост судоходства в Арктике",
+              year: "Экология",
+              direction: "right",
             },
           ].map((project, i) => (
             <ProjectCard key={i} project={project} index={i} isVisible={isVisible} />
@@ -70,11 +77,11 @@ function ProjectCard({
 
   return (
     <div
-      className={`group flex items-center justify-between border-b border-foreground/10 py-6 transition-all duration-700 hover:border-foreground/20 md:py-8 ${getRevealClass()}`}
+      className={`group flex items-center justify-between border-b border-foreground/10 py-4 transition-all duration-700 hover:border-foreground/20 md:py-6 ${getRevealClass()}`}
       style={{
-        transitionDelay: `${index * 150}ms`,
+        transitionDelay: `${index * 120}ms`,
         marginLeft: index % 2 === 0 ? "0" : "auto",
-        maxWidth: index % 2 === 0 ? "85%" : "90%",
+        maxWidth: index % 2 === 0 ? "88%" : "92%",
       }}
     >
       <div className="flex items-baseline gap-4 md:gap-8">
@@ -82,13 +89,13 @@ function ProjectCard({
           {project.number}
         </span>
         <div>
-          <h3 className="mb-1 font-sans text-2xl font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-3xl lg:text-4xl">
+          <h3 className="mb-1 font-sans text-xl font-light text-foreground transition-transform duration-300 group-hover:translate-x-2 md:text-2xl lg:text-3xl">
             {project.title}
           </h3>
           <p className="font-mono text-xs text-foreground/50 md:text-sm">{project.category}</p>
         </div>
       </div>
-      <span className="font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
+      <span className="shrink-0 font-mono text-xs text-foreground/30 md:text-sm">{project.year}</span>
     </div>
   )
 }
